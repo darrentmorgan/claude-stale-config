@@ -2,6 +2,18 @@
 
 A Claude Code plugin that tells a running session when its config went stale on disk, and names the fix.
 
+![stale-config warning in a live Claude Code session after an MCP server was added to .mcp.json](media/demo.gif)
+
+```
+claude plugin install stale-config --marketplace darrentmorgan/claude-stale-config
+```
+
+Or let your agent do it. Paste this into Claude Code:
+
+```
+Install the stale-config plugin: fetch and follow https://raw.githubusercontent.com/darrentmorgan/claude-stale-config/main/INSTALL.md
+```
+
 Claude Code reads some config once, when a session starts. If you edit that config later, the session keeps running on the old version and gives no warning. This plugin records a hash of each watched file when the session starts. On every prompt it checks the files again. When something the session can't pick up by itself has changed, you get one warning:
 
 ```
@@ -24,12 +36,16 @@ The table holds for one version only. Claude Code changes fast, so the hook enco
 
 ## Install
 
+The one-line install above needs Claude Code 2.1.292 or newer. On older versions, or from inside a session:
+
 ```
 /plugin marketplace add darrentmorgan/claude-stale-config
 /plugin install stale-config@stale-config
 ```
 
-Sessions that were already open before the install never run the hook. Restart those once.
+Sessions that were already open before the install never run the hook. Restart those once. To remove it: `claude plugin uninstall stale-config@stale-config`.
+
+The clip above is a real take: a fresh Claude Code 2.1.311 session, the plugin installed from this repo, an MCP server added to `.mcp.json` mid-session, and the next prompt. Only the pauses were cut.
 
 ## Details
 
