@@ -3,6 +3,6 @@
   "description": "Stale-config warning for Claude Code.",
   "owner": { "name": "Darren Morgan" },
   "plugins": [
-    { "name": "stale-config", "source": "./", "description": "Warns when a running session's config changed on disk, and names the fix." }
+    { "name": "stale-config", "source": "./", "description": "A bar above the prompt when a running session's config changed on disk, with the fix." }
   ]
 }
