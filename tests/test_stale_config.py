@@ -416,5 +416,12 @@ class StaleConfigTests(unittest.TestCase):
             self.assertIn("${CLAUDE_PLUGIN_ROOT}/hooks/stale-config.py", command)
 
 
+    def test_band_freezes_the_same_settings_and_size_limit(self):
+        band = (SCRIPT.parent / "session-health.tsx").read_text()
+        keys = re.search(r"export const FROZEN_SETTINGS = \[(.*?)\]", band).group(1)
+        self.assertEqual(tuple(re.findall(r"'([^']+)'", keys)), stale.FROZEN_SETTINGS)
+        limit = re.search(r"const MAX_CLAUDE_JSON = ([0-9_]+)", band).group(1)
+        self.assertEqual(int(limit.replace("_", "")), stale.MAX_CLAUDE_JSON)
+
 if __name__ == "__main__":
     unittest.main()
