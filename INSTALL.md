@@ -19,6 +19,7 @@ by hand.
    - It works in sessions started from now on. A session that was open before the
      install never runs the hook, so restart those once.
    - There is nothing to configure. When config that a running session can't reload
-     changes on disk, the next prompt shows one "Stale config" line with the fix.
+     changes on disk, a "Stale session" bar comes up above the prompt with the fix,
+     and the next prompt shows one "Stale config" line too.
 
 To remove it: `claude plugin uninstall stale-config@stale-config`.
