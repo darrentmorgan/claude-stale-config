@@ -1,0 +1,9 @@
+{
+  "name": "stale-config",
+  "version": "1.0.0",
+  "description": "Tells a running Claude Code session when its config went stale: enabledPlugins, MCP servers, and (in headless sessions) CLAUDE.md, rules and imports changed on disk after it loaded them, with the fix for each.",
+  "author": { "name": "Darren Morgan" },
+  "repository": "https://github.com/darrentmorgan/claude-stale-config",
+  "license": "MIT",
+  "keywords": ["hooks", "settings", "mcp", "claude-md", "stale"]
+}
